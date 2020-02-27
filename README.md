@@ -6,6 +6,15 @@
 
 Python package to ease EDA for Catogorical variables.
 
+### Proposal
+
+#### summary paragraph
+
+#### list of function
+
+#### ecosystem 
+
+
 ### Installation:
 
 ```

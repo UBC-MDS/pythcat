@@ -3,7 +3,10 @@
 
 ## Development Lead
 
-* Eithar Elbasheer <eithar.alfatih@gmail.com>
+* Eithar Elbasheer <https://github.com/EitharAlfatih>
+* Yingping Qian <https://github.com/doraqmon>
+* Netanel Barasch <https://github.com/TBarasch>
+* Hanying Zhang <https://github.com/HanyingZhang>
 
 ## Contributors
 

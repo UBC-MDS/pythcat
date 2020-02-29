@@ -15,7 +15,7 @@ def topcorr(df, k):
       The dataframe of top k correlated features
     """
 
-def missing(df, threshold):
+def misscat(df, threshold):
     """
     Drops rows or columns containing missing values if the number of the missing values exceeds a threshold
 

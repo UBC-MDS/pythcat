@@ -6,14 +6,22 @@
 
 Python package to ease EDA for Catogorical variables.
 
-### Proposal
+### Project Overview
+`pythcat` is a package that provides a collection of convenient functions for Exploratory Data Analysis (EDA). In the early stage of a data science project, EDA is a crucial stage to perform an initial investigation on the dataset and inspire valuable research questions. This package simplifies the process of detecting and dealing with missing and suspicious values, as well as finding the relevant features. 
 
-#### summary paragraph
+### Functions
+The following 4 functions are included in our package.
 
-#### list of function
+1. `misscat`: This function provides a summary of missing values in the dataset and drops rows or columns if the number of the missing values exceeds the input threshold.
 
-#### ecosystem 
+2. `suscat`: Datasets could include erroneous values such as outliers. This function detects suspected erroneous numeric data in user-chosen columns.
 
+3. `repwithna`: Datasets could include uninformative strings, such as strings with only punctuations or blank strings. This function replaces these strings with `NA` so they can be removed as missing values.
+        
+4. `topcorr`: This function calculates the correlation between the columns and generates a list of top-correlated features in the dataset. 
+
+### How `pythcat` fit in the python ecosystem
+TODO
 
 ### Installation:
 

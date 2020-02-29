@@ -1,10 +1,12 @@
 ## pythcat 
 
-![](https://github.com/EitharAlfatih/pythcat/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/EitharAlfatih/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/EitharAlfatih/pythcat) ![Release](https://github.com/EitharAlfatih/pythcat/workflows/Release/badge.svg)
+[![](https://github.com/EitharAlfatih/pythcat/workflows/build/badge.svg)] [![codecov](https://codecov.io/gh/EitharAlfatih/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/EitharAlfatih/pythcat) ![Release](https://github.com/EitharAlfatih/pythcat/workflows/Release/badge.svg)
 
 [![Documentation Status](https://readthedocs.org/projects/pythcat/badge/?version=latest)](https://pythcat.readthedocs.io/en/latest/?badge=latest)
 
-Python package to ease EDA for Catogorical variables.
+Python package to simplify and ease EDA process.
+
+*Creators: Netanel Barasch, Eithar Elbasheer, Yingping Qian, Hanying Zhang*
 
 ### Project Overview
 `pythcat` is a package that provides a collection of convenient functions for Exploratory Data Analysis (EDA). In the early stage of a data science project, EDA is a crucial stage to perform an initial investigation on the dataset and inspire valuable research questions. This package simplifies the process of detecting and dealing with missing and suspicious values, as well as finding the relevant features. 
@@ -21,24 +23,16 @@ The following 4 functions are included in our package.
 4. `topcorr`: This function calculates the correlation between the columns and generates a list of top-correlated features in the dataset. 
 
 ### How `pythcat` fit in the python ecosystem
-TODO
+Several packages in the Python ecosystem could be used to either identify or deal with missing and erroneous values, such as [pandas](https://pandas.pydata.org), [pandas profiling](https://github.com/pandas-profiling/pandas-profiling), [numpy](https://numpy.org). However, it normally takes lines of code with a combination of these functions. Our packages will instead provide a simple and easy way to deal with these noise values in the data analysis. Some packages, such as [Altair](https://altair-viz.github.io) and  [Seaborn](https://seaborn.pydata.org), can be used to plot the correlation matrix for the dataset. The function in our package will generate a clear and easy-to-read list of top-correlated features instead of a correlation matrix. 
+
+
+[Altair](https://altair-viz.github.io), [Seaborn](https://seaborn.pydata.org) are usually used to plot correlation matrix between features, 
 
 ### Installation:
 
 ```
 pip install -i https://test.pypi.org/simple/ pythcat
 ```
-
-### Features
-- TODO
-
-### Dependencies
-
-- TODO
-
-### Usage
-
-- TODO
 
 ### Documentation
 The official documentation is hosted on Read the Docs: <https://pythcat.readthedocs.io/en/latest/>

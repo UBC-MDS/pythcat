@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pythcat"
 version = "0.1.0"
-description = "Python package to ease EDA for Catogorical variables"
+description = "Python package to simplify and ease EDA process"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
 

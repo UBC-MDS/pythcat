@@ -27,9 +27,6 @@ The following 4 functions are included in our package.
 ### How `pythcat` fit in the python ecosystem
 Several packages in the Python ecosystem could be used to either identify or deal with missing and erroneous values, such as [pandas](https://pandas.pydata.org), [pandas profiling](https://github.com/pandas-profiling/pandas-profiling), [numpy](https://numpy.org). However, it normally takes lines of code with a combination of these functions. Our packages will instead provide a simple and easy way to deal with these noise values in the data analysis. Some packages, such as [Altair](https://altair-viz.github.io) and  [Seaborn](https://seaborn.pydata.org), can be used to plot the correlation matrix for the dataset. The function in our package will generate a clear and easy-to-read list of top-correlated features instead of a correlation matrix. 
 
-
-[Altair](https://altair-viz.github.io), [Seaborn](https://seaborn.pydata.org) are usually used to plot correlation matrix between features, 
-
 ### Installation:
 
 ```

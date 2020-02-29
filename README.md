@@ -1,3 +1,5 @@
+<img src="img/python_logo.jpg" width="200" align = "right">
+
 ## pythcat 
 
 [![](https://github.com/EitharAlfatih/pythcat/workflows/build/badge.svg)] [![codecov](https://codecov.io/gh/EitharAlfatih/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/EitharAlfatih/pythcat) ![Release](https://github.com/EitharAlfatih/pythcat/workflows/Release/badge.svg)

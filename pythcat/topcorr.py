@@ -1,5 +1,5 @@
 import pandas as pd
-def topcorr(df, k='all'):
+def topcorr(df, k="all"):
   """
   Generates a pandas dataframe with the top k correlated pairs of features
 
@@ -7,7 +7,7 @@ def topcorr(df, k='all'):
   ----------
   df : pandas.core.frame.DataFrame
     The input dataframe
-  k : int, default = 'all'
+  k : str or int, default = 'all'
     The number of top correlated feature pairs
     Display all the pairs of features based on absolute correlation if 'all' 
 
@@ -28,10 +28,13 @@ def topcorr(df, k='all'):
   n_pair = (n_features**2 - n_features) / 2
   
   if k != "all" and not isinstance(k, int):
-    raise Exception("The input k should be 'all' or an integer!")
+    raise Exception("The input k should be 'all' or a positive integer!")
   
-  if k != "all" and  k > n_pair:
-    raise Exception("The input k should be an integer less than number of pairs!")
+  if k != "all":
+    if k <= 0:
+      raise Exception("The input k should be a positive integer!")
+    if k > n_pair:
+      raise Exception("The input k should be a positive integer less than number of pairs!")
     
   drop_pair = list()
   

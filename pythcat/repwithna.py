@@ -25,7 +25,13 @@ def repwithna(df, rmvpunc=False, format=None):
 
     Examples
     --------
-    >>> repwithna(df)
+    >>> repwithna(pd.DataFrame([['  ',  23], [',;/', 11]], columns = ['Name', 'Age']), rmvpunc=True)
+      Name   | Age   |
+    ------------------
+      NaN    |  23   | 
+    ------------------ 
+      NaN    |  11   | 
+    ------------------ 
     """
 
     # check input value type

@@ -15,9 +15,19 @@ def topcorr(df, k='all'):
     pandas.core.frame.DataFrame
       The dataframe of top k correlated features
     """
-    drop_pair = list()
+    if not isinstance(df, pd.DataFrame):
+      raise Exception("The input df should be a Pandas data frame!")
+
     n_features = df.shape[1]
     n_pair = (n_features**2 - n_features) / 2
+    
+    if k!= "all" and not isinstance(k, int):
+        raise Exception("The input k should be 'all' or an integer!")
+    
+    if k > n_pair:
+        raise Exception("The input k an integer less than or equal to the number of features!") 
+    
+    drop_pair = list()
 
     for i in range(n_features):
         for j in range(i, n_features):

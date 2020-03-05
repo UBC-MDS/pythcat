@@ -30,7 +30,7 @@ def topcorr(df, k='all'):
   if k != "all" and not isinstance(k, int):
     raise Exception("The input k should be 'all' or an integer!")
   
-  if k > n_pair:
+  if k != "all" and  k > n_pair:
     raise Exception("The input k should be an integer less than number of pairs!")
     
   drop_pair = list()

@@ -1,12 +1,22 @@
-def repwithna(df):
+import pandas as pd
+import numpy as np
+
+def repwithna(df, rmvpunc=False, format=None):
     """
     Replace uninformative strings (eg. empty strings like '') in the data frame with NAs, 
-    so they can be removed as missing values.
+    so they can be removed as missing values. 
+    By default, empty strings will be replaced. If 'rmvpunc' is set to 'True', strings 
+    containing only punctuations will also be replaced. If 'format' is set with a regular 
+    expression, the function will replace all the strings of non-compliant formats with NAs.
 
     Parameters
     ----------
-    df : pandas.core.frame.DataFrame
+    df: pandas.core.frame.DataFrame
       The input dataframe
+    rmvpunc: boolean, default=False
+      If True, remove all the strings containing only punctuations
+    standard: String, default=None
+      A regular expression representing the format of the string value in the data frame
 
     Returns
     -------
@@ -17,3 +27,24 @@ def repwithna(df):
     --------
     >>> repwithna(df)
     """
+
+    # check input value type
+    if not isinstance(df, pd.DataFrame):
+        raise Exception("A data frame should be passed to replace the uninformative strings with NAs.")
+      
+    if not isinstance(rmvpunc, bool):
+        raise Exception("'rmvpunc' should be a boolean value.")
+
+    if format is not None and not isinstance(format, str):
+        raise Exception("The format should be a regular expression.")
+
+    if format is None: 
+      # remove empty string
+      df = df.replace(r'^\s*$', np.nan, regex=True)
+      # remove strings with only punctuations (if it is asked)
+      if rmvpunc: 
+        df = df.replace(r'^[!"#$%&\'()*+,-.\/:;<=>?@[\\\]^_`{|}~]*$', np.nan, regex=True)
+    else: 
+      remove = '^(?!'+ format + ').*$'
+      df = df.replace(remove, np.nan, regex=True)
+    return df

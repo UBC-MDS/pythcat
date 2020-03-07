@@ -161,7 +161,7 @@ topcorr(df = iris, 2)
 
 output will be:
 
-|Feature 1|Feature 2|Correlation|
+|Feature 1|Feature 2|Absolute Correlation|
 |---|---|---|---|
 |petal_length |petal_width |0.9629|
 |petal_length|sepal_length|0.8718|

@@ -147,8 +147,8 @@ output will be:
 
 **Arguments**
 
-- df, the input data frame 
-- k, the number of feature pairs to return (intger or string, default: “all”)
+- df, the input data frame (pandas.core.frame.DataFrame)
+- k, the number of feature pairs to return (int or str, default: “all”)
 
 Generates a pandas dataframe with the top k correlated pairs of features
 

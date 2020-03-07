@@ -45,12 +45,13 @@ def repwithna(df, rmvpunc=False, format=None):
         raise Exception("The format should be a regular expression.")
 
     if format is None: 
-      # remove empty string
+      # replace empty string
       df = df.replace(r'^\s*$', np.nan, regex=True)
-      # remove strings with only punctuations (if it is asked)
+      # replace strings with only punctuations (if it is asked)
       if rmvpunc: 
         df = df.replace(r'^[!"#$%&\'()*+,-.\/:;<=>?@[\\\]^_`{|}~]*$', np.nan, regex=True)
     else: 
+      # replace strings that are not in the format
       remove = '^(?!'+ format + ').*$'
       df = df.replace(remove, np.nan, regex=True)
     return df

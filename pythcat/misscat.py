@@ -15,6 +15,12 @@ def misscat(df, threshold):
     -------
     pandas.core.frame.DataFrame
     dataframe of after dropping missing values.
+
+    Examples 
+    ---------
+    >>> from pythcat import misscat
+    >>> data = pd.DataFrame(data = {"X": [1, None, 2], "Y": [2, None, None], "Z": [1, 2, None]})
+    >>> misscat.misscat(data, threshold = 0.3)
     """
     if type(df) is not type(pd.DataFrame()):
         raise AssertionError("Data Must be a pandas dataframe")
@@ -25,4 +31,5 @@ def misscat(df, threshold):
         
     missing_rows = (df.isna().mean(axis = 1) > float(threshold)) 
     missing_index = df.index[missing_rows]
-    df.drop(df.index[missing_index], inplace = True)
+
+    return df.drop(df.index[missing_index])

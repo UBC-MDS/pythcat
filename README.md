@@ -95,10 +95,10 @@ suscat(df, columns, n = 1, num = ‘percent’)
 
 **Arguments**
 
-- df, the input data frame (data.frame)
+- df, the input data frame (pandas.core.frame.DataFrame)
 - columns, a list or array of column indices for which to test for suspected erroneous data (list)
-- n, an integer value for amount of suspected values to return
-num, the optional parameter specifies the whether n is a number of rows or percentage
+- n, an integer value for the amount of suspected values to return (int)
+num, the optional parameter specifies whether n is a number of rows or percentage (str)
 
 **Returns** :  
 dictionary with key as index of column and values as row indices of suspected erroneous values

@@ -36,5 +36,134 @@ pip install -i https://test.pypi.org/simple/ pythcat
 ### Documentation
 The official documentation is hosted on Read the Docs: <https://pythcat.readthedocs.io/en/latest/>
 
+### Usage
+
+The examples used below are based on iris from sklearn build in datasets. For demo purpose, we will insert some missing and erroneous values into this dataset.
+
+```
+from sklearn import datasets
+import pandas as pd
+import numpy as np
+iris = datasets.load_iris()["data"]
+iris = pd.DataFrame(iris, columns = ["sepal_length", "sepal_width", "petal_length", "petal_width"])
+iris.iloc[0,1:3] = np.NAN
+iris.iloc[4,1:3] = np.NAN
+iris.iloc[3,3] = 200
+
+iris.head(5)
+```
+
+The example dataframe is shown below:
+
+|sepal_length|sepal_width|petal_length|petal_width|
+|---|---|---|---|
+|5.1|NaN |NaN |0.2|
+|4.7 |3.2 |1.3 |0.2||
+|4.6 |3.1|1.5|0.2|
+|5.0 |NA|NaN|200||
+
+### 1. misscat
+
+**Arguments**
+
+- df, the input data frame (data.frame)
+- threshold, ratio of missing values to drop the row (numeric)
+
+**Returns**:  
+ a dataframe after dropping the rows exceeded the threshold of missed values.
+
+**Examples**
+
+```
+from pythat import misscat
+misscat(df = iris, threshold = 0.5)
+
+```
+
+output will be:
+
+|sepal_length|sepal_width|petal_length|petal_width|
+|---|---|---|---|
+|4.7 |3.2 |1.3 |0.2||
+|4.6 |3.1|1.5|0.2|
+
+
+
+### 2. suscat
+
+suscat(df, columns, n = 1, num = ‘percent’)
+
+**Arguments**
+
+- df, the input data frame (data.frame)
+- columns, a list or array of column indices for which to test for suspected erroneous data (list)
+- n, an integer value for amount of suspected values to return
+num, the optional parameter specifies the whether n is a number of rows or percentage
+
+**Returns** :  
+dictionary with key as index of column and values as row indices of suspected erroneous values
+
+**Examples**
+
+```
+from pythact import suscat
+suscat(iris, n= 1)
+{1: [1,3]}
+
+```
+output will be
+
+{1: [3,3]}
+
+### 3. repwithna
+
+**Arguments**
+
+- df, the input data frame (data.frame)
+- threshold, ratio of missing values to drop the row (numeric)
+
+Returns a dataframe after dropping the rows exceeded the threshold of missed values.
+
+**Examples**
+
+```
+from pythacat import repwithna
+iris["types]= pd.Series(" ", " ", " ", " ")
+repwithna(df = iris)
+
+```
+
+output will be:
+
+|sepal_length|sepal_width|petal_length|petal_width|type|
+|---|---|---|---| ----|
+|5.1|NaN |NaN |0.2| NaN|
+|4.7 |3.2 |1.3 |0.2|NaN|
+|4.6 |3.1|1.5|0.2| NaN|
+|5.0 |NAN|NaN|200|NaN|
+
+### 4. topcorr
+
+**Arguments**
+
+- df, the input data frame 
+- k, the number of feature pairs to return (intger or string, default: “all”)
+
+Generates a pandas dataframe with the top k correlated pairs of features
+
+**Examples**
+
+```
+from pythacat import misscat
+topcorr(df = iris, 2)
+```
+
+output will be:
+
+|Feature 1|Feature 2|Correlation|
+|---|---|---|---|
+|petal_length |petal_width |0.9629|
+|petal_length|sepal_length|0.8718|
+
 ### Credits
 This package was created with Cookiecutter and the UBC-MDS/cookiecutter-ubc-mds project template, modified from the [pyOpenSci/cookiecutter-pyopensci](https://github.com/pyOpenSci/cookiecutter-pyopensci) project template and the [audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).

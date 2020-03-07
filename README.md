@@ -119,8 +119,7 @@ output will be
 
 **Arguments**
 
-- df, the input data frame (data.frame)
-- threshold, ratio of missing values to drop the row (numeric)
+- df, the input data frame (pandas.core.frame.DataFrame)
 
 Returns a dataframe after dropping the rows exceeded the threshold of missed values.
 

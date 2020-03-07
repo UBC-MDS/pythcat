@@ -43,9 +43,6 @@ def suscat(df, columns, n = 1, num = 'percent'):
 
     if not isinstance(columns, list):
         raise Exception("col argument should be list of column indices")
-
-
-    
     
     output_dict = {}
     if n > df.shape[1] and num == 'number':

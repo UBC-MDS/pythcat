@@ -21,11 +21,13 @@ def misscat(df, threshold):
     >>> from pythcat import misscat
     >>> data = pd.DataFrame(data = {"X": [1, None, 2], "Y": [2, None, None], "Z": [1, 2, None]})
     >>> misscat.misscat(data, threshold = 0.3)
+        X    Y    Z
+        0  1.0  2.0  1.0
     """
     if type(df) is not type(pd.DataFrame()):
-        raise AssertionError("Data Must be a pandas dataframe")
+        raise AssertionError("Data must be a pandas dataframe")
     if type(threshold) is not int and type(threshold) is not float:
-        raise AssertionError("threshold must a number")
+        raise AssertionError("threshold must be a number")
     if float(threshold) < 0 or float(threshold) > 1:
         raise AssertionError("threshold must be between 0 and 1") 
         

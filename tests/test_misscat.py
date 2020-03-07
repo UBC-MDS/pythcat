@@ -29,4 +29,3 @@ def test_misscat():
     # Tests if an exception has been raised when a non numeric datatype is passed for the threshold
     with pytest.raises(Exception):
         misscat.misscat(df = data, threshold = "0.3")
-    data = pd.DataFrame(data = {"X": [1, None, 2], "Y": [2, None, None], "Z": [1, 2, None]})

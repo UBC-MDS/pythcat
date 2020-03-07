@@ -121,7 +121,9 @@ output will be
 
 - df, the input data frame (pandas.core.frame.DataFrame)
 
-Returns a dataframe after dropping the rows exceeded the threshold of missed values.
+**Returns**
+
+a dataframe after replacing the uninformative string with NA (data.frame)
 
 **Examples**
 

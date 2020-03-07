@@ -20,6 +20,9 @@ def topcorr(df, k="all"):
   --------
   >>> df = pd.DataFrame({'x': [1, 2], 'y': [3, 4]})
   >>> topcorr(df, 1)
+  Feature 1 | Feature 2 | Absolute Correlation
+  -- | -- | --
+  y  | x  | 1.0
   """
   if not isinstance(df, pd.DataFrame):
     raise Exception("The input df should be a Pandas data frame!")

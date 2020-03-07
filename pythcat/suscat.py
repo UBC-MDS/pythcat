@@ -35,7 +35,7 @@ def suscat(df, columns, n = 1, num = 'percent'):
     if not isinstance(df, pd.DataFrame):
         raise Exception("A data frame object should be passed in the df argument")
 
-    if num != 'percent' and num != 'number':
+    if num not in {'percent', 'number'}:
         raise Exception("type argument should be one of these values {'percent', 'number'}")
 
     if n != int(n):
@@ -48,12 +48,14 @@ def suscat(df, columns, n = 1, num = 'percent'):
     
     
     output_dict = {}
-    if n > df.shape[1]:
+    if n > df.shape[1] and num == 'number':
         n = df.shape[1]
+    if n > 100 and num == 'percent':
+        n = 100
     if num == 'percent':
         alpha = n/100
     elif num == 'number':
-        alpha = n/(df.shape[0])
+        alpha = (n+1)/((df.shape[0])+1)
     for i in columns:
         # isolate relevant column
         a = df.iloc[:, i]

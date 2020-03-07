@@ -33,7 +33,8 @@ def test_outputs():
   test whether the outputs type, shape and values are correct 
   """
   test_df = pd.DataFrame({'x': [1, 2], 'y': [3, 4]})
-  test_df_2 = pd.DataFrame([(.2, .3, .4), (.0, .6, .7), (.6, .0, .9), (.2, .1, .1)], columns=['x', 'y', 'z'])
+  test_df_2 = pd.DataFrame([(0.5, 100, 8), (2, 23, 9), (1, 78, 23)], columns=['x', 'y', 'z'])
+  df_2_output = pd.DataFrame({'Feature 1': ['y', 'z'], 'Feature 2': ['x', 'y'], 'Absolute Correlation' : [0.9986, 0.1819]})
 
   
   # test when k is default 
@@ -47,8 +48,8 @@ def test_outputs():
   assert result_2.equals(pd.DataFrame({'Feature 1': ['y'], 'Feature 2': ['x'], 'Absolute Correlation' : [1.0]}))
   
   # test when k is not default and less than number of feature pairs
-  result_3 = topcorr.topcorr(test_df_2, 1)
-  assert result_3.shape == (1, 3)
-  assert np.allclose(result_3.iloc[0,2], 0.851064)
+  result_3 = topcorr.topcorr(test_df_2, 2)
+  assert result_3.shape == (2, 3)
+  assert result_3.equals(df_2_output)
 
   

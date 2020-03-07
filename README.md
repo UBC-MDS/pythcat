@@ -70,7 +70,7 @@ The example dataframe is shown below:
 - threshold, ratio of missing values to drop the row (float)
 
 **Returns**:  
- a dataframe after dropping the rows exceeded the threshold of missed values.
+ a pandas dataframe after dropping the rows exceeded the threshold of missed values.
 
 **Examples**
 

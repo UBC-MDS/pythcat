@@ -108,8 +108,6 @@ dictionary with key as index of column and values as row indices of suspected er
 ```
 from pythact import suscat
 suscat(iris, n= 1)
-{1: [1,3]}
-
 ```
 output will be
 
@@ -155,14 +153,14 @@ Generates a pandas dataframe with the top k correlated pairs of features
 **Examples**
 
 ```
-from pythacat import misscat
+from pythacat import topcorr
 topcorr(df = iris, 2)
 ```
 
 output will be:
 
 |Feature 1|Feature 2|Absolute Correlation|
-|---|---|---|---|
+|---|---|---|
 |petal_length |petal_width |0.9629|
 |petal_length|sepal_length|0.8718|
 

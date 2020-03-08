@@ -26,8 +26,8 @@ def suscat(df, columns, n = 1, num = 'percent'):
 
     Examples
     --------
-    suscat(pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]}), columns = [1], n = 2, type = 'percent')
-    > {1: [1,3]}
+>>>    suscat(pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]}), columns = [1], n = 2, type = 'percent')
+     {1: [1,3]}
     """
 
     # add input tests

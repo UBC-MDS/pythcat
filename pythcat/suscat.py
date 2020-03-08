@@ -60,7 +60,7 @@ def suscat(df, columns, n = 1, num = 'percent'):
         h = np.quantile(a, 1-(alpha/2))
         # find lower quantile value
         l = np.quantile(a, alpha/2)
-        # extract indices through boolian comparison to the quantile values
+        # extract indices through boolean comparison to the quantile values
         temp = np.sort(np.append(np.argwhere((a < l).to_numpy()).flatten(), np.argwhere((a > h).to_numpy()).flatten()))
 
         output_dict[i] = temp

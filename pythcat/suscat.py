@@ -12,7 +12,7 @@ def suscat(df, columns, n = 1, num = 'percent'):
         col : list or array of column indices for which to test for suspected erroneous data
         n : integer value for amount of suspected values to return
         type : {'percent', 'number'}
-            This optional parameter specifies the whether n is a number of rows or percentage
+            This optional parameter specifies whether n is a number of rows or percentage
             of values:
 
             * percent: interpret n as a percentage of rows in the df,

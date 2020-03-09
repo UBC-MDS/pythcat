@@ -17,6 +17,7 @@ def suscat(df, columns, n=1, num='percent'):
         This optional parameter specifies the whether n is a
         number of rows or percentage of values:
 
+
         * percent: interpret n as a percentage of rows in the df,
             Value must be between 0 <= n <= 100.
         * number: interpret n as a number of rows of suspected values.

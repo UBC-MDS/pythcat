@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def suscat(df, columns, n = 1, num = 'percent'):
+def suscat(df, columns, n=1, num='percent'):
     """
     Detect suspected erroneous numeric data in user chosen columns of a dataframe
 
@@ -43,25 +43,27 @@ def suscat(df, columns, n = 1, num = 'percent'):
 
     if not isinstance(columns, list):
         raise Exception("col argument should be list of column indices")
-    
+
     output_dict = {}
     if n > df.shape[1] and num == 'number':
         n = df.shape[1]
     if n > 100 and num == 'percent':
         n = 100
     if num == 'percent':
-        alpha = n/100
+        alpha = n / 100
     elif num == 'number':
-        alpha = (n+1)/((df.shape[0])+1)
+        alpha = (n + 1) / ((df.shape[0]) + 1)
     for i in columns:
         # isolate relevant column
-        a = df.iloc[:, i]
+        col = df.iloc[:, i]
         # find upper quantile value
-        h = np.quantile(a, 1-(alpha/2))
+        high = np.quantile(col, 1 - (alpha / 2))
         # find lower quantile value
-        l = np.quantile(a, alpha/2)
-        # extract indices through boolian comparison to the quantile values
-        temp = np.sort(np.append(np.argwhere((a < l).to_numpy()).flatten(), np.argwhere((a > h).to_numpy()).flatten()))
+        low = np.quantile(col, alpha / 2)
+        # extract indices through boolean comparison to the quantile values
+        high_i = np.argwhere((col > high).to_numpy()).flatten()
+        low_i = np.append(np.argwhere((col < low).to_numpy()).flatten())
+        temp = np.sort(low_i, high_i)
 
         output_dict[i] = temp
 

@@ -1,7 +1,8 @@
 from pythcat import suscat
 import pandas as pd
-import numpy as np
+# import numpy as np
 import pytest
+
 
 def test_inputs():
     """
@@ -33,11 +34,8 @@ def test_outputs():
     out1 = suscat.suscat(df, [0, 1], n=80)
     out2 = suscat.suscat(df, [0], num='number', n=2)
 
-
     assert isinstance(out1, dict)
     assert len(out1.keys()) == 2 and len(out1[1]) == 4
     assert max(out1[0]) <= len(df.loc[:, 'x']) and min(out1[0]) >= 0
     assert max(out1[1]) <= len(df.loc[:, 'y']) and min(out1[1]) >= 0
     assert len(out2.keys()) == 1 and len(out2[0]) == 2
-
-

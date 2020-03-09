@@ -24,7 +24,7 @@ def misscat(df, threshold):
         X    Y    Z
         0  1.0  2.0  1.0
     """
-    if type(df) is not type(pd.DataFrame()):
+    if isinstance(df, pd.DataFrame):
         raise AssertionError("Data must be a pandas dataframe")
     if type(threshold) is not int and type(threshold) is not float:
         raise AssertionError("threshold must be a number")

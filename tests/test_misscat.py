@@ -7,7 +7,8 @@ import pytest
 # Testing the misscat() function
 def test_misscat():
     # Create a testing dataframe
-    data = pd.DataFrame(data={"X": [1, None, 2], "Y": [2, None, None], "Z": [1, 2, None]})
+    data = pd.DataFrame(data={"X": [1, None, 2], "Y": [2, None, None],
+                              "Z": [1, 2, None]})
     # testing the number of dropped rows
     output = misscat.misscat(data, 0.5)
     assert output.shape[0] == 1

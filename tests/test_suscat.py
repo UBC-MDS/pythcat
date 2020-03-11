@@ -18,10 +18,14 @@ def test_inputs():
         suscat.suscat(df, [1], num="")
     # test n input
     with pytest.raises(Exception):
-        suscat.suscat(df, [1], n=1.1)
+        suscat.suscat(df, [1], n=1.1, num='number')
+    with pytest.raises(Exception):
+        suscat.suscat(df, [1], n=20000000, num='number')
+    with pytest.raises(Exception):
+        suscat.suscat(df, [1], n=200, num='percent')
     # test column input
     with pytest.raises(Exception):
-        suscat.suscat(df, 6)
+        suscat.suscat(df, '1')
 
 
 def test_outputs():

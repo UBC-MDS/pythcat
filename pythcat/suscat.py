@@ -45,15 +45,16 @@ def suscat(df, columns, n=1, num='percent'):
 
     if n != int(n):
         raise Exception("n should be an integer ")
+    elif num == 'percent' and (n > 100 or n < 0):
+        raise Exception("a percentage should be between 0 and 100")
+    elif num == 'number' and (n > df.shape[1]):
+        raise Exception("Can't return more then df.shape[1]")
 
     if not isinstance(columns, list):
         raise Exception("col argument should be list of column indices")
 
     output_dict = {}
-    if n > df.shape[1] and num == 'number':
-        n = df.shape[1]
-    if n > 100 and num == 'percent':
-        n = 100
+
     if num == 'percent':
         alpha = n / 100
     elif num == 'number':

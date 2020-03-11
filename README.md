@@ -2,7 +2,7 @@
 
 ## pythcat 
 
-[![](https://github.com/UBC-MDS/pythcat/workflows/build/badge.svg)] [![codecov](https://codecov.io/gh/UBC-MDS/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/pythcat) ![Release](https://github.com/UBC-MDS/pythcat/workflows/Release/badge.svg)
+![](https://github.com/UBC-MDS/pythcat/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/pythcat) ![Release](https://github.com/UBC-MDS/pythcat/workflows/Release/badge.svg)
 
 [![Documentation Status](https://readthedocs.org/projects/pythcat/badge/?version=latest)](https://pythcat.readthedocs.io/en/latest/?badge=latest)
 

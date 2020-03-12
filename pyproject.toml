@@ -4,6 +4,10 @@ version = "0.1.0"
 description = "Python package to simplify and ease EDA process"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/UBC-MDS/pythcat"
+repository = "https://github.com/UBC-MDS/pythcat"
+documentation = 'https://pythcat.readthedocs.io'
 
 [tool.poetry.dependencies]
 python = "^3.7"

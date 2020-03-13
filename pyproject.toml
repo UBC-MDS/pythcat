@@ -4,16 +4,24 @@ version = "0.1.0"
 description = "Python package to simplify and ease EDA process"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/UBC-MDS/pythcat"
+repository = "https://github.com/UBC-MDS/pythcat"
+documentation = 'https://pythcat.readthedocs.io'
 
 [tool.poetry.dependencies]
 python = "^3.7"
 pandas = "^1.0.1"
+numpy = "^1.18.1"
 
 [tool.poetry.dev-dependencies]
+pytest = "^5.3.5"
+pytest-cov = "^2.8.1"
+codecov = "^2.0.16"
+python-semantic-release = "^4.10.0"
 flake8 = "^3.7.9"
 sphinx = "^2.4.4"
 sphinxcontrib-napoleon = "^0.7"
-pytest-cov = "^2.8.1"
 
 
 [build-system]

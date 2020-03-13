@@ -12,14 +12,6 @@ pythcat.misscat module
    :undoc-members:
    :show-inheritance:
 
-pythcat.pythcat module
-----------------------
-
-.. automodule:: pythcat.pythcat
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 pythcat.repwithna module
 ------------------------
 

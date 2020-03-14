@@ -23,7 +23,7 @@ def misscat(df, threshold):
     ---------
     >>> data = pd.DataFrame(data = {"X": [1, None, 2],
     "Y": [2, None, None], "Z": [1, 2, None]})
-    >>> misscat(data, threshold = 0.3)
+    >>> pythcat.misscat(data, threshold = 0.3)
         X    Y    Z
         1.0  2.0  1.0
     """
@@ -71,7 +71,7 @@ def suscat(df, columns, n=1, num='percent'):
     Examples
     --------
     >>> data = pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]})
-    >>> suscat(data, columns = [1], n = 2, num = 'percent')
+    >>> pythcat.suscat(data, columns = [1], n = 2, num = 'percent')
         {1: array([1, 3])}
     """
 
@@ -145,7 +145,7 @@ def repwithna(df, rmvpunc=False, format=None):
     --------
     >>> data = pd.DataFrame([['  ', 23], [',;/', 11]],
         columns = ['Name', 'Age'])
-    >>> repwithna(data, rmvpunc=True)
+    >>> pythcat.repwithna(data, rmvpunc=True)
         Name  Age
         NaN   23
         NaN   11
@@ -196,7 +196,7 @@ def topcorr(df, k="all"):
     Examples
     --------
     >>> data = pd.DataFrame({'x': [1, 2], 'y': [3, 4]})
-    >>> topcorr(data, 1)
+    >>> pythcat.topcorr(data, 1)
         Feature 1 Feature 2  Absolute Correlation
         y         x                   1.0
     """

@@ -16,7 +16,7 @@ Python package to simplify and ease EDA process.
 ### Functions
 The following 4 functions are included in our package.
 
-1. `misscat`: This function provides a summary of missing values in the dataset and drops rows or columns if the number of the missing values exceeds the input threshold.
+1. `misscat`: This function provides a summary of missing values in the dataset and drops rows if the number of the missing values exceeds the input threshold.
 
 2. `suscat`: Datasets could include erroneous values such as outliers. This function detects suspected erroneous numeric data in user-chosen columns.
 
@@ -49,8 +49,9 @@ iris = pd.DataFrame(iris, columns = ["sepal_length", "sepal_width", "petal_lengt
 iris.iloc[0,1:3] = np.NAN
 iris.iloc[4,1:3] = np.NAN
 iris.iloc[3,3] = 200
-
-iris.head(5)
+iris.iloc[4,3] = ""
+iris = iris.head(5)
+iris
 ```
 
 The example dataframe is shown below:
@@ -60,7 +61,7 @@ The example dataframe is shown below:
 |5.1|NaN |NaN |0.2|
 |4.7 |3.2 |1.3 |0.2||
 |4.6 |3.1|1.5|0.2|
-|5.0 |NA|NaN|200||
+||NaN|NaN|0.2|
 
 ### 1. misscat
 
@@ -75,8 +76,8 @@ The example dataframe is shown below:
 **Examples**
 
 ```
-from pythat.misscat import misscat
-misscat(df = iris, threshold = 0.5)
+from pythcat.pythcat import misscat
+misscat(df = iris, threshold = 0.4)
 
 ```
 
@@ -84,8 +85,9 @@ output will be:
 
 |sepal_length|sepal_width|petal_length|petal_width|
 |---|---|---|---|
-|4.7 |3.2 |1.3 |0.2||
-|4.6 |3.1|1.5|0.2|
+|4.9	|3.0	|1.4	|0.2|
+|4.7	|3.2	|1.3	|0.2|
+|4.6	|3.1	|1.5	|200|
 
 
 
@@ -106,12 +108,12 @@ dictionary with key as index of column and values as row indices of suspected er
 **Examples**
 
 ```
-from pythact.suscat import suscat
-suscat(iris, n= 1)
+from pythcat.pythcat import suscat
+suscat(iris, columns = [3], n = 2)
 ```
 output will be
 
-{1: [3,3]}
+{3: array([3])}
 
 ### 3. repwithna
 
@@ -126,20 +128,19 @@ a dataframe after replacing the uninformative string with NA (data.frame)
 **Examples**
 
 ```
-from pythacat.repwithna import repwithna
-iris["types]= pd.Series(" ", " ", " ", " ")
+from pythcat.pythcat import repwithna
 repwithna(df = iris)
 
 ```
 
 output will be:
 
-|sepal_length|sepal_width|petal_length|petal_width|type|
-|---|---|---|---| ----|
-|5.1|NaN |NaN |0.2| NaN|
-|4.7 |3.2 |1.3 |0.2|NaN|
-|4.6 |3.1|1.5|0.2| NaN|
-|5.0 |NAN|NaN|200|NaN|
+|sepal_length|sepal_width|petal_length|petal_width|
+|---|---|---|---|
+|5.1|NaN |NaN |0.2|
+|4.7 |3.2 |1.3 |0.2||
+|4.6 |3.1|1.5|0.2|
+|NaN|NaN|NaN|0.2|
 
 ### 4. topcorr
 
@@ -153,8 +154,10 @@ Generates a pandas dataframe with the top k correlated pairs of features
 **Examples**
 
 ```
-from pythacat.topcorr import topcorr
-topcorr(df = iris, 2)
+from pythcat.pythcat import topcorr
+iris = datasets.load_iris()["data"]
+iris = pd.DataFrame(iris, columns = ["sepal_length", "sepal_width", "petal_length", "petal_width"])
+topcorr(iris, 2)
 ```
 
 output will be:

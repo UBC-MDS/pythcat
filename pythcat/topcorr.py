@@ -10,8 +10,8 @@ def topcorr(df, k="all"):
     df : pandas.core.frame.DataFrame
       The input dataframe
     k : str or int, default = 'all'
-      The number of top correlated feature pairs
-      Display all the pairs of features based on absolute correlation if 'all'
+      if k is an int, it is the number of top correlated feature pairs;
+      if 'all', display all the pairs of features based on absolute correlation
 
     Returns
     -------
@@ -20,11 +20,11 @@ def topcorr(df, k="all"):
 
     Examples
     --------
-    >>> df = pd.DataFrame({'x': [1, 2], 'y': [3, 4]})
-    >>> topcorr(df, 1)
-    |Feature 1 | Feature 2 | Absolute Correlation|
-    |---|---|---|
-    |y|x|1.0|
+    >>> from pythcat.topcorr import topcorr
+    >>> data = pd.DataFrame({'x': [1, 2], 'y': [3, 4]})
+    >>> topcorr(data, 1)
+        Feature 1 Feature 2  Absolute Correlation
+        y         x                   1.0
     """
     if not isinstance(df, pd.DataFrame):
         raise Exception("The input df should be a Pandas data frame!")

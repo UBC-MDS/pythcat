@@ -29,14 +29,13 @@ def repwithna(df, rmvpunc=False, format=None):
 
     Examples
     --------
-    >>> repwithna(pd.DataFrame([['  ',  23], [',;/', 11]],
-    >>>   columns = ['Name', 'Age']), rmvpunc=True)
-      Name   | Age   |
-    ------------------
-      NaN    |  23   |
-    ------------------
-      NaN    |  11   |
-    ------------------
+    >>> from pythcat.repwithna import repwithna
+    >>> data = pd.DataFrame([['  ', 23], [',;/', 11]],
+        columns = ['Name', 'Age'])
+    >>> repwithna(data, rmvpunc=True)
+        Name  Age
+        NaN   23
+        NaN   11
     """
 
     # check input value type
@@ -51,14 +50,14 @@ def repwithna(df, rmvpunc=False, format=None):
         raise Exception("The format should be a regular expression.")
 
     if format is None:
-        # replace empty string
+        # replace empty string with NAs
         df = df.replace(r'^\s*$', np.nan, regex=True)
-        # replace strings with only punctuations (if it is asked)
+        # replace strings with only punctuations with NAs(if it is asked)
         if rmvpunc:
             df = df.replace(r'^[!"#$%&\'()*+,-.\/:;<=>?@[\\\]^_`{|}~]*$',
                             np.nan, regex=True)
     else:
-        # replace strings that are not in the format
+        # replace strings that are not in the customized format with NAs
         remove = '^(?!' + format + ').*$'
         df = df.replace(remove, np.nan, regex=True)
     return df

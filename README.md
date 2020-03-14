@@ -2,7 +2,7 @@
 
 ## pythcat 
 
-[![](https://github.com/UBC-MDS/pythcat/workflows/build/badge.svg)] [![codecov](https://codecov.io/gh/UBC-MDS/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/pythcat) ![Release](https://github.com/UBC-MDS/pythcat/workflows/Release/badge.svg)
+![](https://github.com/UBC-MDS/pythcat/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/pythcat/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/pythcat) ![Release](https://github.com/UBC-MDS/pythcat/workflows/Release/badge.svg)
 
 [![Documentation Status](https://readthedocs.org/projects/pythcat/badge/?version=latest)](https://pythcat.readthedocs.io/en/latest/?badge=latest)
 
@@ -75,7 +75,7 @@ The example dataframe is shown below:
 **Examples**
 
 ```
-from pythat import misscat
+from pythat.misscat import misscat
 misscat(df = iris, threshold = 0.5)
 
 ```
@@ -106,7 +106,7 @@ dictionary with key as index of column and values as row indices of suspected er
 **Examples**
 
 ```
-from pythact import suscat
+from pythact.suscat import suscat
 suscat(iris, n= 1)
 ```
 output will be
@@ -126,7 +126,7 @@ a dataframe after replacing the uninformative string with NA (data.frame)
 **Examples**
 
 ```
-from pythacat import repwithna
+from pythacat.repwithna import repwithna
 iris["types]= pd.Series(" ", " ", " ", " ")
 repwithna(df = iris)
 
@@ -153,7 +153,7 @@ Generates a pandas dataframe with the top k correlated pairs of features
 **Examples**
 
 ```
-from pythacat import topcorr
+from pythacat.topcorr import topcorr
 topcorr(df = iris, 2)
 ```
 

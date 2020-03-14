@@ -4,34 +4,10 @@ pythcat package
 Submodules
 ----------
 
-pythcat.misscat module
+pythcat.pythcat module
 ----------------------
 
-.. automodule:: pythcat.misscat
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pythcat.repwithna module
-------------------------
-
-.. automodule:: pythcat.repwithna
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pythcat.suscat module
----------------------
-
-.. automodule:: pythcat.suscat
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pythcat.topcorr module
-----------------------
-
-.. automodule:: pythcat.topcorr
+.. automodule:: pythcat.pythcat
    :members:
    :undoc-members:
    :show-inheritance:

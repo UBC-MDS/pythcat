@@ -14,7 +14,7 @@ Python package to simplify and ease EDA process.
 `pythcat` is a package that provides a collection of convenient functions for Exploratory Data Analysis (EDA). In the early stage of a data science project, EDA is a crucial stage to perform an initial investigation on the dataset and inspire valuable research questions. This package simplifies the process of detecting and dealing with missing and suspicious values, as well as finding the relevant features. 
 
 ### Functions
-The following 4 functions are included in our package.
+The following 4 functions are included in our package:
 
 1. `misscat`: This function drops rows if the number of the missing values exceeds the input threshold.
 

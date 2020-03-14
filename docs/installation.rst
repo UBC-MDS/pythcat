@@ -39,9 +39,8 @@ Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/u/pythcat/master
-    
-https://github.com/UBC-MDS/pythcat
+    $ curl  -OL https://github.com/UBC-MDS/pythcat/tarball/master
+
 Once you have a copy of the source, you can install it with:
 
 .. code-block:: console

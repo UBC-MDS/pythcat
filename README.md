@@ -16,7 +16,7 @@ Python package to simplify and ease EDA process.
 ### Functions
 The following 4 functions are included in our package.
 
-1. `misscat`: This function provides a summary of missing values in the dataset and drops rows if the number of the missing values exceeds the input threshold.
+1. `misscat`: This function drops rows if the number of the missing values exceeds the input threshold.
 
 2. `suscat`: Datasets could include erroneous values such as outliers. This function detects suspected erroneous numeric data in user-chosen columns.
 

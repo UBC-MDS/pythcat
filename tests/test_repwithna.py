@@ -1,5 +1,4 @@
-
-from pythcat import repwithna
+from pythcat import pythcat
 import pandas as pd
 import numpy as np
 import pytest
@@ -19,28 +18,28 @@ def test_repwithna():
 
     # test whether strings with only
     # punctuations are replaced correctly
-    assert repwithna.repwithna(df_1, rmvpunc=True).equals(output),\
+    assert pythcat.repwithna(df_1, rmvpunc=True).equals(output),\
         "The strings with punctuations are not replaced properly."
 
     # test whether blank strings are replaced correctly
-    assert repwithna.repwithna(df_2).equals(output),\
+    assert pythcat.repwithna(df_2).equals(output),\
         "The empty strings are not replaced properly."
 
     # test whether strings that are not in the
     # customized format are replaced correctly
-    assert repwithna.repwithna(df_3, format="^to.*").equals(output),\
+    assert pythcat.repwithna(df_3, format="^to.*").equals(output),\
         "The strings that are incompatible\
         with the format are not replaced properly."
 
     # tests for incorrect inputs (which should throw exceptions)
     # test when data is not passed as data frame
     with pytest.raises(Exception):
-        repwithna.repwithna(['Tom', 'tom'])
+        pythcat.repwithna(['Tom', 'tom'])
 
     # test when `rmvpunc` passed is not a boolean value
     with pytest.raises(Exception):
-        repwithna.repwithna(pd.DataFrame([['Tom', 'tom']]), rmvpunc='True')
+        pythcat.repwithna(pd.DataFrame([['Tom', 'tom']]), rmvpunc='True')
 
     # test when `format` passed is not a string
     with pytest.raises(Exception):
-        repwithna.repwithna(pd.DataFrame([['Tom', 'tom']]), format=12)
+        pythcat.repwithna(pd.DataFrame([['Tom', 'tom']]), format=12)

@@ -42,56 +42,43 @@ def misscat(df, threshold):
 
 def suscat(df, columns, n=1, num='percent'):
     """
-    Detects suspected erroneous numeric data in user chosen columns of
-    a dataframe
+    Detect suspected erroneous numeric data in user
+    chosen columns of a dataframe
 
     Parameters
     ----------
-    df : pandas.core.frame.DataFrame
-      The input dataframe
-    columns : list
-      list of column indices for which to test for suspected erroneous data
-    n : int
-      integer value for amount of suspected values to return
-    num : str
-      {'percent', 'number'}.
-      This optional parameter specifies the whether n is a number of rows or
-      percentage of values.
-      'percent': interpret n as a percentage of rows in the df,
-      and value must be between 0 <= n <= 100.
-      'number': interpret n as a number of rows of suspected values,
-      and value must be between 0 < n <= df.shape[0]
+    df : Pandas dataframe object
+    col : list or array of column indices for which to test for
+        suspected erroneous data
+    n : integer value for amount of suspected values to return
+    type : {'percent', 'number'}
+        This optional parameter specifies the whether n is a
+        number of rows or percentage of values:
+
+
+        * percent: interpret n as a percentage of rows in the df,
+            Value must be between 0 <= n <= 100.
+        * number: interpret n as a number of rows of suspected values.
+            Value must be between 0 < n <= df.shape[0]
 
     Returns
     -------
-    dict
-      a dictionary with key as index of column and values as row indices of
-      suspected erroneous values
+    dictionary with key as index of column and values as array of row indices of
+    suspected erroneous values
 
     Examples
     --------
-    >>> data = pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]})
-    >>> pythcat.suscat(data, columns = [1], n = 2, num = 'percent')
-        {1: array([1, 3])}
+    suscat(pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]}),
+    columns = [1], n = 2, num = 'number')
+    > {1: [1,3]}
+    
+    suscat(pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]}),
+    columns = [1], n = 25, num = 'percent')
+    > {1: [2]}
     """
 
     # add input tests
-    # check input value type
-    if not isinstance(df, pd.DataFrame):
-        raise Exception("A dataframe object should be passed as df")
-
-    if num not in {'percent', 'number'}:
-        raise Exception("type should one of these {'percent', 'number'}")
-
-    if n != int(n):
-        raise Exception("n should be an integer ")
-    elif num == 'percent' and (n > 100 or n < 0):
-        raise Exception("a percentage should be between 0 and 100")
-    elif num == 'number' and (n > df.shape[1]):
-        raise Exception("Can't return more then df.shape[1]")
-
-    if not isinstance(columns, list):
-        raise Exception("col argument should be list of column indices")
+    _input_test_suscat(df, columns, n, num)
 
     output_dict = {}
 
@@ -114,6 +101,26 @@ def suscat(df, columns, n=1, num='percent'):
         output_dict[i] = temp
 
     return output_dict
+
+
+def _input_test_suscat(df, columns, n=1, num='percent'):
+    # helper function to test suscat input
+    # df type
+    if not isinstance(df, pd.DataFrame):
+        raise Exception("A dataframe object should be passed as df")
+    # check num value
+    if num not in {'percent', 'number'}:
+        raise Exception("type should one of these {'percent', 'number'}")
+    # check n value
+    if n != int(n):
+        raise Exception("n should be an integer ")
+    elif num == 'percent' and (n > 100 or n < 0):
+        raise Exception("a percentage should be between 0 and 100")
+    elif num == 'number' and (n > df.shape[0]):
+        raise Exception("Can't return more then df.shape[0]")
+    # check columns type
+    if not isinstance(columns, list):
+        raise Exception("col argument should be list of column indices")
 
 
 def repwithna(df, rmvsym=False, format=None):

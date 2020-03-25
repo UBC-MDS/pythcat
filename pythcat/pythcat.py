@@ -116,12 +116,12 @@ def suscat(df, columns, n=1, num='percent'):
     return output_dict
 
 
-def repwithna(df, rmvpunc=False, format=None):
+def repwithna(df, rmvsym=False, format=None):
     """
     Replace uninformative strings (eg. empty strings like '') in the
     data frame with NAs, so they can be removed as missing values.
-    By default, empty strings will be replaced. If 'rmvpunc' is set
-    to 'True', strings containing only punctuations will also be
+    By default, empty strings will be replaced. If 'rmvsym' is set
+    to 'True', strings containing only symbols will also be
     replaced. If 'format' is set with a regular expression, the
     function will replace all the strings of non-compliant formats
     with NAs.
@@ -130,9 +130,9 @@ def repwithna(df, rmvpunc=False, format=None):
     ----------
     df: pandas.core.frame.DataFrame
       The input dataframe
-    rmvpunc: boolean, default=False
-      If True, remove all the strings containing only punctuations
-    standard: String, default=None
+    rmvsym: boolean, default=False
+      If True, remove all the strings containing only symbols
+    format: String, default=None
       A regular expression representing the format of the string value
       in the data frame
 
@@ -143,11 +143,11 @@ def repwithna(df, rmvpunc=False, format=None):
 
     Examples
     --------
-    >>> data = pd.DataFrame([['  ', 23], [',;/', 11]],
+    >>> data = pd.DataFrame([['Momo', 23], ['momo', 11]],
         columns = ['Name', 'Age'])
-    >>> pythcat.repwithna(data, rmvpunc=True)
+    >>> pythcat.repwithna(data, format='^M.+')
         Name  Age
-        NaN   23
+        Momo   23
         NaN   11
     """
 
@@ -156,8 +156,8 @@ def repwithna(df, rmvpunc=False, format=None):
         raise Exception("A data frame should be passed to\
       replace the uninformative strings with NAs.")
 
-    if not isinstance(rmvpunc, bool):
-        raise Exception("'rmvpunc' should be a boolean value.")
+    if not isinstance(rmvsym, bool):
+        raise Exception("'rmvsym' should be a boolean value.")
 
     if format is not None and not isinstance(format, str):
         raise Exception("The format should be a regular expression.")
@@ -165,8 +165,8 @@ def repwithna(df, rmvpunc=False, format=None):
     if format is None:
         # replace empty string with NAs
         df = df.replace(r'^\s*$', np.nan, regex=True)
-        # replace strings with only punctuations with NAs(if it is asked)
-        if rmvpunc:
+        # replace strings with only symbols with NAs(if it is asked)
+        if rmvsym:
             df = df.replace(r'^[!"#$%&\'()*+,-.\/:;<=>?@[\\\]^_`{|}~]*$',
                             np.nan, regex=True)
     else:

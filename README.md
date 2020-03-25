@@ -68,7 +68,7 @@ The example dataframe is shown below:
 **Arguments**
 
 - df, the input data frame (pandas.core.frame.DataFrame)
-- threshold, ratio of missing values to drop the row (float)
+- threshold, the number of minimum missing values proportion needed to drop a row.(float)
 
 **Returns**:  
  a pandas dataframe after dropping the rows exceeded the threshold of missed values.

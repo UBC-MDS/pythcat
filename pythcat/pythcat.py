@@ -63,15 +63,15 @@ def suscat(df, columns, n=1, num='percent'):
 
     Returns
     -------
-    dictionary with key as index of column and values as array of row indices of
-    suspected erroneous values
+    dictionary with key as index of column and values as array of row indices
+    of suspected erroneous values
 
     Examples
     --------
     suscat(pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]}),
     columns = [1], n = 2, num = 'number')
     > {1: [1,3]}
-    
+
     suscat(pd.DataFrame({'Age': [2, 23, 4, 11], 'Number': [11, 99, 23, 8]}),
     columns = [1], n = 25, num = 'percent')
     > {1: [2]}
@@ -183,7 +183,7 @@ def repwithna(df, rmvsym=False, format=None):
     return df
 
 
-def topcorr(df, k="all"):
+def topcorr(df, k="all", method='pearson'):
     """
     Generates a pandas dataframe with the top k correlated pairs of features
 
@@ -194,6 +194,8 @@ def topcorr(df, k="all"):
     k : str or int, default = 'all'
       if k is an int, it is the number of top correlated feature pairs;
       if 'all', display all the pairs of features based on absolute correlation
+    method : str, default = 'pearson'
+      method of correlation, can be either ‘pearson’, ‘kendall’, or ‘spearman’
 
     Returns
     -------
@@ -228,7 +230,7 @@ def topcorr(df, k="all"):
         for j in range(i, n_features):
             drop_pair.append((df.columns[i], df.columns[j]))
 
-    corr_df = df.corr().abs().round(4).unstack()
+    corr_df = df.corr(method=method).abs().round(4).unstack()
     corr_df = corr_df.drop(labels=drop_pair).sort_values(ascending=False)
     corr_df = pd.DataFrame(corr_df).reset_index()
     col_name = ['Feature 1', 'Feature 2', 'Absolute Correlation']

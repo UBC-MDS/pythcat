@@ -12,7 +12,8 @@ def misscat(df, threshold):
     df : pandas.core.frame.DataFrame
       The input dataframe
     threshold : float
-      The threshold of the missing values ratio needed to drop rows
+      The threshold of the minimum missing values proportion
+      needed to drop the row.
 
     Returns
     -------

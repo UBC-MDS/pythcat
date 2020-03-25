@@ -20,7 +20,7 @@ The following 4 functions are included in our package:
 
 2. `suscat`: Datasets could include erroneous values such as outliers. This function detects suspected erroneous numeric data in user-chosen columns.
 
-3. `repwithna`: Datasets could include uninformative strings, such as strings with only punctuations or blank strings. This function replaces these strings with `NA` so they can be removed as missing values.
+3. `repwithna`: Datasets could include uninformative strings, such as strings with only symbols or blank strings. This function replaces these strings with `NA`s.
         
 4. `topcorr`: This function calculates the correlation between the columns and generates a list of top-correlated features in the dataset. 
 
@@ -120,6 +120,10 @@ output will be
 **Arguments**
 
 - df, the input data frame (pandas.core.frame.DataFrame)
+- rmvsym, boolean value (default is FALSE), if TRUE, strings with 
+only symbols in the data frame will be replaced as NA
+- format, A regular expression representing the format of the string 
+value in the data frame
 
 **Returns**
 

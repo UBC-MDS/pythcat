@@ -17,9 +17,9 @@ def test_repwithna():
     output = pd.DataFrame([['to? ', np.nan]])
 
     # test whether strings with only
-    # punctuations are replaced correctly
-    assert pythcat.repwithna(df_1, rmvpunc=True).equals(output),\
-        "The strings with punctuations are not replaced properly."
+    # symbols are replaced correctly
+    assert pythcat.repwithna(df_1, rmvsym=True).equals(output),\
+        "The strings with symbols are not replaced properly."
 
     # test whether blank strings are replaced correctly
     assert pythcat.repwithna(df_2).equals(output),\
@@ -36,9 +36,9 @@ def test_repwithna():
     with pytest.raises(Exception):
         pythcat.repwithna(['Tom', 'tom'])
 
-    # test when `rmvpunc` passed is not a boolean value
+    # test when `rmvsym` passed is not a boolean value
     with pytest.raises(Exception):
-        pythcat.repwithna(pd.DataFrame([['Tom', 'tom']]), rmvpunc='True')
+        pythcat.repwithna(pd.DataFrame([['Tom', 'tom']]), rmvsym='True')
 
     # test when `format` passed is not a string
     with pytest.raises(Exception):
